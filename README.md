@@ -42,6 +42,7 @@ Le damos lick a lanzar instancia y ya tendriamos nuestra instancia corriendo en 
 
 
 PASO 02: Instalar Pi hole
+
 Ahora que ya tenemos creada la maquina virtual, nos vamos al panel de instancias, seleccionamos la isntancia creada y le damos a conectar.
 
 ![paso02}](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/bf4b63f6-a985-47bd-b2da-116d31c45661)
@@ -49,12 +50,15 @@ Ahora que ya tenemos creada la maquina virtual, nos vamos al panel de instancias
 
 
 
-
 NOTA: Al permitir conexiones solo de mi dirección IP se debe modificar el security group para que también permita conexiones desde el servicio EC2 Instances de la región donde te encuentres.
 ![reglas-modificadas](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/1617b51c-13d0-412f-9cca-66d9857a6bb9)
 
+Ahora vamos a actualizar la VM utilizando los siguientes comandos:
+sudo apt update
+sudo apt upgrade -y
 
-
+Una ves la maquina virtual ha sido actualizada, procedemos a instalar pi hole 
+sudo curl -sSL https://install.pi-hole.net | bash
 
 
 PASO 03: Configurar Pi hole
