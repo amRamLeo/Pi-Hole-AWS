@@ -51,14 +51,15 @@ En esta segunda regla, se permitirá el tráfico HTTP únicamente desde mi direc
 Tercera regla de seguridad: Permitir tráfico DNS (UDP) solo desde mi dirección IP
 
 En esta tercera regla, se permitirá el tráfico DNS, que generalmente se realiza a través del protocolo UDP, únicamente desde mi dirección IP. Esto asegura que el acceso al servidor a través del protocolo DNS esté restringido exclusivamente a mi dirección IP.
-![regla3](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/90af46a7-a07b-4acf-9645-8accf0c175fe)
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/1de078b9-8b03-495f-8ba9-e68df92bf52d)
 
 
 
 Cuarta regla de seguridad: Permitir tráfico DNS (UDP) solo desde mi dirección IP
 
 En esta cuarta regla, se permitirá el tráfico DNS, que generalmente se realiza a través del protocolo UDP, únicamente desde mi dirección IP. Esto garantiza que el acceso al servidor a través del protocolo DNS esté restringido exclusivamente a mi dirección IP.
-![regla4](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/d5ae91b1-e209-4049-b959-c29c916114fb)
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/2ee5215f-5f6b-48ea-addb-815bb9de0e36)
+
 
 
 Una vez configuradas todas las opciones, hacemos clic en 'Lanzar instancia' y nuestra instancia estará lista y funcionando en AWS.
