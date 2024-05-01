@@ -98,56 +98,75 @@ Al finalizar la instalación, se mostrará una ventana con la dirección IP priv
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/f3bc89f2-ed3f-4302-b945-008bfc623b92)
 
 
-Ya que la contraseña generada por defecto es poco segura, la podemos cambiar con el siguiente comando:
+Dado que la contraseña generada por defecto puede ser poco segura, es recomendable cambiarla utilizando el siguiente comando:
+
 pihole -a -p "contraseña"
 
+Una vez modificada la contraseña, podemos acceder a nuestro Pi-hole utilizando la dirección IP pública.
 
-Una vez modificada la contraseña, ya podemos acceder a nuestro pihole utilizando la ip publica.
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/3879d446-0d29-4d85-bdb5-d001c23d041e)
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/61aa0d0e-ade0-458c-a800-81aca2133197)
 
 
 
-
 PASO 03: Configurar DNS Recursivo
 
-Para convertir el servidor dns en un dns recursivo vamos a utilizar unbound utilizando el siguiente comando:
+Para convertir el servidor DNS en un servidor DNS recursivo, vamos a utilizar Unbound. Primero, instalaremos Unbound con el siguiente comando:
+
 sudo apt install unbound
 
-Ahora necesitamos un archivo de configuración. Unbound nos ofrece un archivo de configuración estandar donde el codigo puede ser copiado desde su pagina web: https://docs.pi-hole.net/guides/dns/unbound/
+
+Una vez instalado Unbound, necesitamos un archivo de configuración. Unbound nos proporciona un archivo de configuración estándar que puede ser copiado desde su página web: https://docs.pi-hole.net/guides/dns/unbound/
 
 Primero tenemos que crear el archivo, copiar el codigo que se encuentra en la pagina y guardar el contenido en el archivo creado.
 sudo nano /etc/unbound/unbound.conf.d/pi-hole.conf
 
-Ya creado el archivo ahora tenemos que reinicar el servicio con el siguiente comando:
+Una vez creado el archivo de configuración, reiniciamos el servicio utilizando el siguiente comando:
+
 sudo service unbound restart
+
 
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/68128eb8-6dd1-49e6-9dfb-788ca18b1084)
 
-Ahora tenemos que configurar la fuente de DNS desde la interfaz de administrador.
-Desmarcamos las opciones de google de ipv4(en mi caso) y añadimos las dirección loopback de la maquina virtual junto al puerto que va a utilizar para hacer las consultas: 127.0.0.1#5335.
+
+Para garantizar un entorno profesional y seguro, es crucial configurar adecuadamente la fuente de DNS desde la interfaz de administrador de Pi-hole.
+
+1. Desmarcar las opciones de Google para IPv4.
+
+2. A continuación, añadir la dirección loopback de la máquina virtual, junto con el puerto designado para las consultas DNS. Por ejemplo: 127.0.0.1#5335.
+
+Esta configuración garantizará que el servidor Pi-hole utilice adecuadamente la fuente de DNS especificada, asegurando un funcionamiento óptimo y seguro del sistema.
+
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/2cd35a99-0add-4fca-849b-0358e24520da)
 
-Y por ultimo, guardamos los cambios en la parte baja de la pestaña.
+
+Para finalizar, asegúrate de guardar los cambios haciendo clic en el botón correspondiente ubicado en la parte inferior de la pestaña.
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/1bc4a7b2-6b10-4bad-9398-0683cd2d1c98)
 
 
-PASO 04: ¿Como utilizo el servidor DNS?
+PASO 04: ¿Cómo utilizar el servidor DNS?
 
-Pi hole esta configurado por defecto para permitir conexiones a nivel local. Dado que lo hemos instalado en la nube debemos permitir conexiones desde cualquier IP, sin embargo no cualquier IP se va a poder conectar ya que el grupo de seguridad configurado deberia permitir solo consultas desde nuestra IP. 
+Pi-hole está configurado por defecto para permitir conexiones a nivel local. Sin embargo, al haberlo instalado en la nube, es necesario permitir conexiones desde cualquier dirección IP. Aunque, cabe destacar que el grupo de seguridad configurado debería permitir únicamente consultas desde nuestra dirección IP.
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/5ae35159-8be5-4002-b059-04dd7382fc39)
 
-Lo modificamos y lo guardamos en la parte infererior de la pestaña
 
-Ahora debemos configurar nuestro ordenador para realizar consultas al servidor DNS que hemos creado. 
-Para realizar esto vamos a "Panel de control\Redes e Internet\Centro de redes y recursos compartidos", le damos click a nuestra red y despues a propiedades.
+Una vez hayamos modificado los ajustes según sea necesario, guardamos los cambios en la parte inferior de la pestaña.
+
+Posteriormente, debemos configurar nuestro ordenador cliente para realizar consultas al servidor DNS que hemos creado.
+
+Para ello, accedemos a "Panel de control\Redes e Internet\Centro de redes y recursos compartidos". Luego, hacemos clic en nuestra red y seleccionamos "Propiedades".
+
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/9ecb4707-6a2b-4a2b-a2d4-f766b92a0388)
 
 
-Hacemos doble click en "habilitar protocolo de internet versión 4" y ponemos la dirección IP pública de nuestro servidor DNS. Guardamos y ya estaria funcionando.
+Hacemos doble clic en "Habilitar Protocolo de Internet versión 4 (TCP/IPv4)".
+Introducimos la dirección IP pública de nuestro servidor DNS en los campos correspondientes.
+Guardamos los cambios.
+Con estos pasos, la configuración del servidor DNS debería estar completa y funcional.
+
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/3c3fc079-6ff4-47d8-864d-9bafc2035808)
 
