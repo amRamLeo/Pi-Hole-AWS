@@ -111,9 +111,15 @@ Ahora necesitamos un archivo de configuración. Unbound nos ofrece un archivo de
 Primero tenemos que crear el archivo, copiar el codigo que se encuentra en la pagina y guardar el contenido en el archivo creado.
 sudo nano /etc/unbound/unbound.conf.d/pi-hole.conf
 
-Ya creado el archivo ahora tenemos que reinicar el servicio:
+Ya creado el archivo ahora tenemos que reinicar el servicio con el siguiente comando:
 sudo service unbound restart
 
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/68128eb8-6dd1-49e6-9dfb-788ca18b1084)
 
+Ahora tenemos que configurar la fuente de DNS desde la interfaz de administrador.
+Desmarcamos las opciones de google de ipv4(en mi caso) y añadimos las dirección loopback de la maquina virtual junto al puerto que va a utilizar para hacer las consultas: 127.0.0.1#5335.
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/2cd35a99-0add-4fca-849b-0358e24520da)
+
+Y por ultimo, guardamos los cambios en la parte baja de la pestaña.
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/1bc4a7b2-6b10-4bad-9398-0683cd2d1c98)
