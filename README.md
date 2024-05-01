@@ -24,6 +24,16 @@ Creamos un nuevo grupo de seguridad para configurar las reglas del grupo de segu
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/202f3cf9-e5c6-4186-b8d4-468e3d695bb9)
 
-Primera regla: Permitir conexiones trafico SSH solo desde mi dirección IP.
+Primera regla: Permitir trafico SSH solo desde mi dirección IP.
+![aws2](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/7609c1d2-e6ee-4530-8a85-00038d39de58)
+
+Segunda regla: Permitir trafico HTTP solo desde mi dirección IP.
+![aws2](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/b259866b-e699-48ff-8ef1-fc454f4ca917)
+
+Tercera regla: Permitir trafico DNS(TCP) solo desde mi dirección IP.
+![regla3](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/90af46a7-a07b-4acf-9645-8accf0c175fe)
+
+Cuarta regla: Permitir trafico DNS(UDP) solo desde mi dirección IP.
+![regla4](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/d5ae91b1-e209-4049-b959-c29c916114fb)
 
 
