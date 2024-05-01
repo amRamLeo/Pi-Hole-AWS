@@ -71,12 +71,32 @@ sudo apt update
 
 sudo apt upgrade -y
 
+
+
 Una ves la maquina virtual ha sido actualizada, procedemos a instalar pi hole 
 
 sudo curl -sSL https://install.pi-hole.net | bash
 
-Es posible que al descargar pi hole nos pida reiniciar el
-![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/da76b3d9-fab7-449f-8dce-1d16c8dd3f9e)
+
+
+Aceptamos todas las opciones que aparezcan.
+En una parte de la instalación va a aparecer una opcion para usar un servidor dns: seleccionas cualquiera ya que en la intefaz de administrador vamos a modificar la dirección para utilizar un dns recursivo para resolver las consultas.
+
+
+
+Al final de la instalación va a aprecer una ventana con la dirección ip privada de la maquina virtual y la contraseña. Nosotros necesitamos la dirección ip publica que se encuentra en la parte de abajo de la pestaña para poder acceder a la interfaz de administrador.
+
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/f3bc89f2-ed3f-4302-b945-008bfc623b92)
+
+
+Ya que la contraseña generada por defecto es poco segura, la podemos cambiar con el siguiente comando:
+pihole -a -p "contraseña"
+
+
+Una vez modificada la contraseña, ya podemos acceder a nuestro pihole utilizando la ip publica.
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/3879d446-0d29-4d85-bdb5-d001c23d041e)
+
+
 
 
 PASO 03: Configurar Pi hole
