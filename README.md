@@ -1,4 +1,4 @@
-¿Como instalar Pi-Hole en AWS sin costo?
+¿Como instalar Pi-Hole con DNS Recursivo en AWS de manera gratis?
 
 PASO 01: Crear instancia EC2
 
@@ -80,7 +80,7 @@ sudo curl -sSL https://install.pi-hole.net | bash
 
 
 Aceptamos todas las opciones que aparezcan.
-En una parte de la instalación va a aparecer una opcion para usar un servidor dns: seleccionas cualquiera ya que en la intefaz de administrador vamos a modificar la dirección para utilizar un dns recursivo para resolver las consultas.
+En una parte de la instalación va a aparecer una opcion para usar un servidor dns: seleccionas cualquiera ya que en el paso 03 de administrador vamos a modificarlo para convertir esta instalación corriente de pihole en un servidor dns recursivo.
 
 
 
@@ -96,10 +96,20 @@ pihole -a -p "contraseña"
 Una vez modificada la contraseña, ya podemos acceder a nuestro pihole utilizando la ip publica.
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/3879d446-0d29-4d85-bdb5-d001c23d041e)
 
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/61aa0d0e-ade0-458c-a800-81aca2133197)
 
 
 
-PASO 03: Configurar Pi hole
+PASO 03: Configurar DNS Recursivo
+Para convertir el servidor dns en un dns recursivo vamos a utilizar unbound utilizando el siguiente comando:
+sudo apt install unbound
+
+Ahora necesitamos un archivo de configuración. Unbound nos ofrece un archivo de configuración estandar donde el codigo puede ser copiado desde su pagina web: https://docs.pi-hole.net/guides/dns/unbound/
+
+Primero tenemos que crear el archivo, copiar el codigo que se encuentra en la pagina y guardar el contenido en el archivo creado.
+sudo nano /etc/unbound/unbound.conf.d/pi-hole.conf
+Ya creado el archivo ahora tenemos que reinicar el servicio:
 
 
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/68128eb8-6dd1-49e6-9dfb-788ca18b1084)
 
