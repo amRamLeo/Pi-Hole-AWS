@@ -1,4 +1,4 @@
-¿Como instalar Pi-Hole con DNS Recursivo en AWS de manera gratis?
+¿Como instalar Pi-Hole con DNS Recursivo en AWS de manera gratuita?
 
 PASO 01: Crear instancia EC2
 
@@ -123,3 +123,24 @@ Desmarcamos las opciones de google de ipv4(en mi caso) y añadimos las direcció
 
 Y por ultimo, guardamos los cambios en la parte baja de la pestaña.
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/1bc4a7b2-6b10-4bad-9398-0683cd2d1c98)
+
+
+PASO 04: ¿Como utilizo el servidor DNS?
+
+Pi hole esta configurado por defecto para permitir conexiones a nivel local. Dado que lo hemos instalado en la nube debemos permitir conexiones desde cualquier IP, sin embargo no cualquier IP se va a poder conectar ya que el grupo de seguridad configurado deberia permitir solo consultas desde nuestra IP. 
+
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/5ae35159-8be5-4002-b059-04dd7382fc39)
+
+Lo modificamos y lo guardamos en la parte infererior de la pestaña
+
+Ahora debemos configurar nuestro ordenador para realizar consultas al servidor DNS que hemos creado. 
+Para realizar esto vamos a "Panel de control\Redes e Internet\Centro de redes y recursos compartidos", le damos click a nuestra red y despues a propiedades.
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/9ecb4707-6a2b-4a2b-a2d4-f766b92a0388)
+
+Hacemos doble click en "habilitar protocolo de internet versión 4" y ponemos la dirección IP pública de nuestro servidor DNS. Guardamos y ya estaria funcionando.
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/3c3fc079-6ff4-47d8-864d-9bafc2035808)
+
+
+
+
+
