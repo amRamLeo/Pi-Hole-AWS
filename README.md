@@ -1,5 +1,3 @@
 ¿Como instalar Pi-Hole en AWS?
 
-
-
-![Foto en Blanco](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/36405170-b141-4db9-aeee-5ac3e9f6a9ec)
+![images](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/01fa6087-32e1-4586-9869-47ea152cb5c6)
