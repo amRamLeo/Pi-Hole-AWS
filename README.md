@@ -15,7 +15,7 @@ Asignamos un nombre descriptivo a la instancia y seleccionamos un sistema operat
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/d2285bd6-82fa-4dd9-92a0-20c7f15881bd)
 
 
-Dentro de la sección "Tipo de instancia", escogemos una opción que esté dentro de la capa gratuita de AWS. En este caso, seleccionamos la instancia t2.micro, la cual está disponible dentro de esta capa sin coste adicional
+Dentro de la sección "Tipo de instancia", escogemos una opción que esté dentro de la capa gratuita de AWS. En este caso, seleccionamos la instancia t2.micro, la cual está disponible dentro de esta capa sin coste adicional.
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/2b8d60c2-b899-49b1-9bb1-4e910ddc4aed)
 
@@ -25,23 +25,29 @@ A continuación, generaremos un nuevo par de claves SSH para establecer una cone
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/e8625e99-ec20-4ef4-8e07-e5228bdb95ad)
 
 
-En configuración de red le damos a editar y dejamos por defecto los parametros de VPC, subred y asignación de IP Publica automatica. 
+En la sección "Configuración de red", seleccionamos "Editar" y dejamos los parámetros de VPC, subred y asignación de IP pública en sus valores predeterminados.
 
-Creamos un nuevo grupo de seguridad para configurar las reglas del grupo de seguridad para ver quienes(direccion IP) y de que manera(protocolo) van a poder acceder a nuestro servidor DNS. En este caso vamos a utilizar cuatro reglas de seguridad. En mi caso, como solo voy a utilizarlo desde mi ordenador, todas las reglas van a estar vinculadas a mi dirección IP. 
+Luego, creamos un nuevo grupo de seguridad para definir las reglas de acceso al servidor DNS. Establecemos estas reglas basadas en direcciones IP y protocolos. En este escenario, utilizaremos cuatro reglas de seguridad, todas vinculadas a mi dirección IP, ya que solo accederemos al servidor desde mi ordenador.
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/202f3cf9-e5c6-4186-b8d4-468e3d695bb9)
 
 
-Primera regla: Permitir trafico SSH solo desde mi dirección IP.
+
+Primera regla de seguridad: Permitir tráfico SSH solo desde mi dirección IP
+
+Estableceremos la primera regla de seguridad para permitir el tráfico SSH únicamente desde mi dirección IP. De esta manera, se restringirá el acceso al servidor a través del protocolo SSH a mi dirección IP específica
 ![aws2](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/7609c1d2-e6ee-4530-8a85-00038d39de58)
+
 
 
 Segunda regla: Permitir trafico HTTP solo desde mi dirección IP.
 ![aws2](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/b259866b-e699-48ff-8ef1-fc454f4ca917)
 
 
+
 Tercera regla: Permitir trafico DNS(TCP) solo desde mi dirección IP.
 ![regla3](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/90af46a7-a07b-4acf-9645-8accf0c175fe)
+
 
 
 Cuarta regla: Permitir trafico DNS(UDP) solo desde mi dirección IP.
