@@ -6,19 +6,24 @@ Lo primero seria crearse una cuenta en AWS y loguearse. Una vez dentro de nuestr
 
 ![Paso1](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/c3cb8ec1-c1d0-43a1-8ac2-b47f486e8eb1)
 
+
 Le ponemos un nombre a la instancia y seleccionamos un SO para nuestra maquina virtual que sea apto para la capa gratuita. En mi caso utilizare Ubuntu 22.04, ya que en el momento de esta publicación la versión 24.04 no es compatible con pi-hole.
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/8d2155d8-b09f-43ba-ba28-fa5c41eb49df)
 
+
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/d2285bd6-82fa-4dd9-92a0-20c7f15881bd)
+
 
 En tipo de instancia seleccionamos una que sea apto para la capa gratuita, en este caso seleccionaremos el t2.micro.
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/2b8d60c2-b899-49b1-9bb1-4e910ddc4aed)
 
+
 Luego crearemos un nuevo par de claves para poder conectarnos de manera segura a la instancia a través del protocolo SSH. Aunque para este caso especifico no utilizemos estas claves, crearlas es parte de las buenas practicas ya que garantiza un acceso seguro y controlado a la instancia.
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/e8625e99-ec20-4ef4-8e07-e5228bdb95ad)
+
 
 En configuración de red le damos a editar y dejamos por defecto los parametros de VPC, subred y asignación de IP Publica automatica. 
 
@@ -26,19 +31,25 @@ Creamos un nuevo grupo de seguridad para configurar las reglas del grupo de segu
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/202f3cf9-e5c6-4186-b8d4-468e3d695bb9)
 
+
 Primera regla: Permitir trafico SSH solo desde mi dirección IP.
 ![aws2](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/7609c1d2-e6ee-4530-8a85-00038d39de58)
+
 
 Segunda regla: Permitir trafico HTTP solo desde mi dirección IP.
 ![aws2](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/b259866b-e699-48ff-8ef1-fc454f4ca917)
 
+
 Tercera regla: Permitir trafico DNS(TCP) solo desde mi dirección IP.
 ![regla3](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/90af46a7-a07b-4acf-9645-8accf0c175fe)
+
 
 Cuarta regla: Permitir trafico DNS(UDP) solo desde mi dirección IP.
 ![regla4](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/d5ae91b1-e209-4049-b959-c29c916114fb)
 
+
 Le damos lick a lanzar instancia y ya tendriamos nuestra instancia corriendo en AWS!!!
+
 
 
 PASO 02: Instalar Pi hole
@@ -51,14 +62,18 @@ Ahora que ya tenemos creada la maquina virtual, nos vamos al panel de instancias
 
 
 NOTA: Al permitir conexiones solo de mi dirección IP se debe modificar el security group para que también permita conexiones desde el servicio EC2 Instances de la región donde te encuentres.
-![reglas-modificadas](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/1617b51c-13d0-412f-9cca-66d9857a6bb9)
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/1299974f-ea60-4088-9191-274e30c90f59)
 
-Ahora vamos a actualizar la VM utilizando los siguientes comandos:
+
+Ahora vamos a actualizar la VM utilizando los siguientes comandos y despues de ejecutarlo, reiniciamos la instancia para que el kernel se actualice.
 sudo apt update
 sudo apt upgrade -y
 
 Una ves la maquina virtual ha sido actualizada, procedemos a instalar pi hole 
 sudo curl -sSL https://install.pi-hole.net | bash
+
+Es posible que al descargar pi hole nos pida reiniciar el
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/da76b3d9-fab7-449f-8dce-1d16c8dd3f9e)
 
 
 PASO 03: Configurar Pi hole
