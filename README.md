@@ -66,10 +66,13 @@ NOTA: Al permitir conexiones solo de mi dirección IP se debe modificar el secur
 
 
 Ahora vamos a actualizar la VM utilizando los siguientes comandos y despues de ejecutarlo, reiniciamos la instancia para que el kernel se actualice.
+
 sudo apt update
+
 sudo apt upgrade -y
 
 Una ves la maquina virtual ha sido actualizada, procedemos a instalar pi hole 
+
 sudo curl -sSL https://install.pi-hole.net | bash
 
 Es posible que al descargar pi hole nos pida reiniciar el
