@@ -1,8 +1,8 @@
-¿Como instalar Pi-Hole con DNS Recursivo en AWS de manera gratuita?
+Instalación de Pi-Hole con DNS Recursivo en AWS de forma gratuita
 
-PASO 01: Crear instancia EC2
+Paso 1: Crear una instancia EC2
 
-Lo primero seria crearse una cuenta en AWS y loguearse. Una vez dentro de nuestra cuenta, el siguiente paso seria entrar al panel EC2 y click en lanzar instancias.
+Para comenzar, es necesario disponer de una cuenta en AWS y acceder a ella. Una vez dentro de la consola de AWS, dirigirse al servicio EC2 y seleccionar "Lanzar instancias".
 
 ![Paso1](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/c3cb8ec1-c1d0-43a1-8ac2-b47f486e8eb1)
 
