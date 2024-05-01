@@ -10,10 +10,20 @@ Le ponemos un nombre a la instancia y seleccionamos un SO para nuestra maquina v
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/d2285bd6-82fa-4dd9-92a0-20c7f15881bd)
 
-En tipo de instancia tambien seleccionamos una que sea apto para la capa gratuita, en este caso seleccionaremos el t2.micro.
+En tipo de instancia seleccionamos una que sea apto para la capa gratuita, en este caso seleccionaremos el t2.micro.
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/2b8d60c2-b899-49b1-9bb1-4e910ddc4aed)
 
+Luego crearemos un nuevo par de claves para poder conectarnos de manera segura a la instancia a través del protocolo SSH. Aunque para este caso especifico no utilizemos estas claves, crearlas es parte de las buenas practicas ya que garantiza un acceso seguro y controlado a la instancia.
+
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/e8625e99-ec20-4ef4-8e07-e5228bdb95ad)
+
+En configuración de red le damos a editar y dejamos por defecto los parametros de VPC, subred y asignación de IP Publica automatica. 
+
+Creamos un nuevo grupo de seguridad para configurar las reglas del grupo de seguridad para ver quienes(direccion IP) y de que manera(protocolo) van a poder acceder a nuestro servidor DNS. En este caso vamos a utilizar cuatro reglas de seguridad. Como solo voy a utilizarlo desde mi ordenador, todas las reglas van a estar vinculadas a mi dirección IP.
+
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/202f3cf9-e5c6-4186-b8d4-468e3d695bb9)
+
+Primera regla: Permitir conexiones trafico SSH solo desde mi dirección IP.
 
 
-![images](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/01fa6087-32e1-4586-9869-47ea152cb5c6)
