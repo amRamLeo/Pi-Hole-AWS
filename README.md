@@ -137,7 +137,9 @@ Ahora debemos configurar nuestro ordenador para realizar consultas al servidor D
 Para realizar esto vamos a "Panel de control\Redes e Internet\Centro de redes y recursos compartidos", le damos click a nuestra red y despues a propiedades.
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/9ecb4707-6a2b-4a2b-a2d4-f766b92a0388)
 
+
 Hacemos doble click en "habilitar protocolo de internet versión 4" y ponemos la dirección IP pública de nuestro servidor DNS. Guardamos y ya estaria funcionando.
+
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/3c3fc079-6ff4-47d8-864d-9bafc2035808)
 
 
