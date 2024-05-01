@@ -39,58 +39,61 @@ Estableceremos la primera regla de seguridad para permitir el tráfico SSH únic
 ![aws2](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/7609c1d2-e6ee-4530-8a85-00038d39de58)
 
 
+Segunda regla de seguridad: Permitir tráfico HTTP solo desde mi dirección IP
 
-Segunda regla: Permitir trafico HTTP solo desde mi dirección IP.
+En esta segunda regla, se permitirá el tráfico HTTP únicamente desde mi dirección IP. Esto garantizará que el acceso al servidor a través del protocolo HTTP esté restringido exclusivamente a mi dirección IP.
 ![aws2](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/b259866b-e699-48ff-8ef1-fc454f4ca917)
 
 
 
-Tercera regla: Permitir trafico DNS(TCP) solo desde mi dirección IP.
+Tercera regla de seguridad: Permitir tráfico DNS (UDP) solo desde mi dirección IP
+
+En esta tercera regla, se permitirá el tráfico DNS, que generalmente se realiza a través del protocolo UDP, únicamente desde mi dirección IP. Esto asegura que el acceso al servidor a través del protocolo DNS esté restringido exclusivamente a mi dirección IP.
 ![regla3](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/90af46a7-a07b-4acf-9645-8accf0c175fe)
 
 
 
-Cuarta regla: Permitir trafico DNS(UDP) solo desde mi dirección IP.
+Cuarta regla de seguridad: Permitir tráfico DNS (UDP) solo desde mi dirección IP
+
+En esta cuarta regla, se permitirá el tráfico DNS, que generalmente se realiza a través del protocolo UDP, únicamente desde mi dirección IP. Esto garantiza que el acceso al servidor a través del protocolo DNS esté restringido exclusivamente a mi dirección IP.
 ![regla4](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/d5ae91b1-e209-4049-b959-c29c916114fb)
 
 
-Le damos lick a lanzar instancia y ya tendriamos nuestra instancia corriendo en AWS!!!
+Una vez configuradas todas las opciones, hacemos clic en 'Lanzar instancia' y nuestra instancia estará lista y funcionando en AWS.
 
 
+PASO 02: Instalar Pi-hole
 
-PASO 02: Instalar Pi hole
-
-Ahora que ya tenemos creada la maquina virtual, nos vamos al panel de instancias, seleccionamos la isntancia creada y le damos a conectar.
+Ahora que hemos creado la máquina virtual, nos dirigimos al panel de instancias, seleccionamos la instancia creada y hacemos clic en "Conectar".
 
 ![paso02}](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/bf4b63f6-a985-47bd-b2da-116d31c45661)
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/119e07ba-7f3f-4984-b924-c2e78487f643)
 
 
 
-NOTA: Al permitir conexiones solo de mi dirección IP se debe modificar el security group para que también permita conexiones desde el servicio EC2 Instances de la región donde te encuentres.
+NOTA: Consideraciones adicionales sobre el acceso
+
+Es importante tener en cuenta que al restringir las conexiones únicamente a tu dirección IP, también es necesario modificar el grupo de seguridad para permitir conexiones desde el servicio EC2 Instances dentro de la región donde te encuentres. Esto garantizará que la instancia pueda recibir conexiones no solo desde tu dirección IP, sino también desde otros recursos dentro de la infraestructura de AWS en esa región específica
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/1299974f-ea60-4088-9191-274e30c90f59)
 
 
-Ahora vamos a actualizar la VM utilizando los siguientes comandos y despues de ejecutarlo, reiniciamos la instancia para que el kernel se actualice.
+Ahora procederemos a actualizar la máquina virtual utilizando los siguientes comandos. Después de ejecutarlos, reiniciaremos la instancia para que el kernel se actualice:
 
 sudo apt update
-
 sudo apt upgrade -y
 
 
-
-Una ves la maquina virtual ha sido actualizada, procedemos a instalar pi hole 
+Una vez que la máquina virtual haya sido actualizada, procedemos a instalar Pi-hole utilizando el siguiente comando:
 
 sudo curl -sSL https://install.pi-hole.net | bash
 
 
+Durante la instalación, se te presentarán varias opciones. Asegúrate de aceptar todas las que aparezcan.
 
-Aceptamos todas las opciones que aparezcan.
-En una parte de la instalación va a aparecer una opcion para usar un servidor dns: seleccionas cualquiera ya que en el paso 03 de administrador vamos a modificarlo para convertir esta instalación corriente de pihole en un servidor dns recursivo.
+En cierto punto de la instalación, se te solicitará seleccionar un servidor DNS. Puedes elegir cualquier opción disponible, ya que en el paso 03 del proceso de configuración, modificaremos esta configuración para convertir esta instalación básica de Pi-hole en un servidor DNS recursivo.
 
+Al finalizar la instalación, se mostrará una ventana con la dirección IP privada de la máquina virtual y la contraseña. Sin embargo, para acceder a la interfaz de administración, necesitaremos la dirección IP pública, la cual se encuentra en la parte inferior de la pestaña.
 
-
-Al final de la instalación va a aprecer una ventana con la dirección ip privada de la maquina virtual y la contraseña. Nosotros necesitamos la dirección ip publica que se encuentra en la parte de abajo de la pestaña para poder acceder a la interfaz de administrador.
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/f3bc89f2-ed3f-4302-b945-008bfc623b92)
 
