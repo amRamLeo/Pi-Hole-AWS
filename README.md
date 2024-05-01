@@ -1,5 +1,7 @@
 ¿Como instalar Pi-Hole en AWS sin costo?
 
+PASO1:
+
 Lo primero seria crearse una cuenta en AWS y loguearse. Una vez dentro de nuestra cuenta, el siguiente paso seria entrar al panel EC2 y click en lanzar instancias.
 
 ![Paso1](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/c3cb8ec1-c1d0-43a1-8ac2-b47f486e8eb1)
@@ -36,4 +38,5 @@ Tercera regla: Permitir trafico DNS(TCP) solo desde mi dirección IP.
 Cuarta regla: Permitir trafico DNS(UDP) solo desde mi dirección IP.
 ![regla4](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/d5ae91b1-e209-4049-b959-c29c916114fb)
 
+Y por ultimo, le damos click a lanzar Instancia.
 
