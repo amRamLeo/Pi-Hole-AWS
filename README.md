@@ -22,7 +22,7 @@ Luego crearemos un nuevo par de claves para poder conectarnos de manera segura a
 
 En configuración de red le damos a editar y dejamos por defecto los parametros de VPC, subred y asignación de IP Publica automatica. 
 
-Creamos un nuevo grupo de seguridad para configurar las reglas del grupo de seguridad para ver quienes(direccion IP) y de que manera(protocolo) van a poder acceder a nuestro servidor DNS. En este caso vamos a utilizar cuatro reglas de seguridad. Como solo voy a utilizarlo desde mi ordenador, todas las reglas van a estar vinculadas a mi dirección IP.
+Creamos un nuevo grupo de seguridad para configurar las reglas del grupo de seguridad para ver quienes(direccion IP) y de que manera(protocolo) van a poder acceder a nuestro servidor DNS. En este caso vamos a utilizar cuatro reglas de seguridad. En mi caso, como solo voy a utilizarlo desde mi ordenador, todas las reglas van a estar vinculadas a mi dirección IP. 
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/202f3cf9-e5c6-4186-b8d4-468e3d695bb9)
 
@@ -40,10 +40,13 @@ Cuarta regla: Permitir trafico DNS(UDP) solo desde mi dirección IP.
 
 Le damos lick a lanzar instancia y ya tendriamos nuestra instancia corriendo en AWS!!!
 
+
 PASO 02: Instalar Pi hole
 Ahora que ya tenemos creada la maquina virtual, nos vamos al panel de instancias, seleccionamos la isntancia creada y le damos a conectar.
 
 ![paso02}](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/bf4b63f6-a985-47bd-b2da-116d31c45661)
+
+NOTA: Al permitir conexiones solo de mi dirección IP se debe configurar el security group para que permita conexiones desde el servidor EC2 Instance de la región donde te encuentres.
 
 
 PASO 03: Configurar Pi hole
