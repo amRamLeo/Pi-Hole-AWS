@@ -100,7 +100,9 @@ Una vez modificada la contraseña, ya podemos acceder a nuestro pihole utilizand
 
 
 
+
 PASO 03: Configurar DNS Recursivo
+
 Para convertir el servidor dns en un dns recursivo vamos a utilizar unbound utilizando el siguiente comando:
 sudo apt install unbound
 
@@ -108,7 +110,9 @@ Ahora necesitamos un archivo de configuración. Unbound nos ofrece un archivo de
 
 Primero tenemos que crear el archivo, copiar el codigo que se encuentra en la pagina y guardar el contenido en el archivo creado.
 sudo nano /etc/unbound/unbound.conf.d/pi-hole.conf
+
 Ya creado el archivo ahora tenemos que reinicar el servicio:
+sudo service unbound restart
 
 
 ![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/68128eb8-6dd1-49e6-9dfb-788ca18b1084)
