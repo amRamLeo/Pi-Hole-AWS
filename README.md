@@ -36,13 +36,15 @@ Luego, creamos un nuevo grupo de seguridad para definir las reglas de acceso al 
 Primera regla de seguridad: Permitir tráfico SSH solo desde mi dirección IP
 
 Estableceremos la primera regla de seguridad para permitir el tráfico SSH únicamente desde mi dirección IP. De esta manera, se restringirá el acceso al servidor a través del protocolo SSH a mi dirección IP específica
-![aws2](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/7609c1d2-e6ee-4530-8a85-00038d39de58)
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/ef6d37f6-33fe-47d7-9848-a5a03675b954)
+
 
 
 Segunda regla de seguridad: Permitir tráfico HTTP solo desde mi dirección IP
 
 En esta segunda regla, se permitirá el tráfico HTTP únicamente desde mi dirección IP. Esto garantizará que el acceso al servidor a través del protocolo HTTP esté restringido exclusivamente a mi dirección IP.
-![aws2](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/b259866b-e699-48ff-8ef1-fc454f4ca917)
+![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/8328b6dd-a8c7-405d-a744-8119520126e2)
+
 
 
 
