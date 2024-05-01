@@ -51,7 +51,6 @@ Ahora que ya tenemos creada la maquina virtual, nos vamos al panel de instancias
 
 
 NOTA: Al permitir conexiones solo de mi dirección IP se debe modificar el security group para que también permita conexiones desde el servicio EC2 Instances de la región donde te encuentres.
-![image](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/ce238d54-850c-4fdf-98ad-0e18eb3dfa3f)
 ![reglas-modificadas](https://github.com/amRamLeo/Pi-Hole-AWS/assets/87347460/1617b51c-13d0-412f-9cca-66d9857a6bb9)
 
 
